@@ -1,0 +1,29 @@
+{%extends "home/__base.html" %} 
+{% block title %} Register | {{block.super}} {% endblock %}
+{% block javascript %}{{block.super}}
+<script>
+	 $(document).ready(function() {
+    $('select').material_select();
+  });
+ </script>
+  {% endblock %}
+{% block content %}
+<div class="col-xs-12">
+	{% if registered %}
+		<h4>Sign up successful!</h4>
+		<a href="{% url "index" %}" type="button" class="btn btn-primary">OK</a>
+	{% else %}
+		<h4>Sign up</h4>
+		<form id="user_form" method="post" action="{% url "register" %}">
+			{% csrf_token %}
+			<div class="row">
+			{{user_form}}
+			</div>
+			{{profile_form.as_p}}
+			<div class="row">
+				<button type="submit" class="btn-large col s12"><i class="material-icons">done</i></button>
+			</div>
+		</form>
+	{% endif %}
+</div>
+{% endblock %}

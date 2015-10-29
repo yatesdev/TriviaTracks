@@ -1,0 +1,25 @@
+
+<div class="navbar-header">
+    <div class="btn-group pull-right">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#links">
+            <i class="icon-ellipsis-vertical" style="vertical-align:sub;"></i>
+        </button>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+            <i class="icon-search" style="vertical-align:sub;"></i>
+        </button>
+    </div>
+    <a class="navbar-brand" href="#">CCT Music</a>
+</div>
+<ul class="collapse navbar-collapse nav navbar-nav" id="links">
+    <li class="{% block home_menu %}{% endblock %}"><a href="{% url "index" %}">Home</a></li>
+    <li class="{% block request_menu %}{% endblock %}"><a href="{% url "song_request" %}">Request</a></li>
+    <li><a href="{% block account_menu %}{% endblock %}">My Account</a></li>
+</ul>
+<div class="collapse navbar-collapse text-center vertical-" id="search">
+    <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Artist or Song">
+        </div>
+        <button type="submit" class="btn btn-default"><i class="icon-search"></i> Search</button>
+    </form>
+</div>

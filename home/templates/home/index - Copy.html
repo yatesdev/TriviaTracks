@@ -1,0 +1,30 @@
+{%extends "home/__base.html" %} 
+{% block title %} Index | {{block.super}} {% endblock %} 
+{% block home_menu %} active {% endblock %} 
+{% block javascript %}{{block.super}}
+<script>
+	$(document).ready(function(){
+	    $('.collapsible').collapsible({
+	      accordion : true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+	    });
+	  });
+</script>
+ {% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col s12 m6 l6">
+	        <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+	        	<li>
+	        		<div class="collapsible-header active grey lighten-3"><i class="material-icons">expand_more</i>Recently Requested</div>
+			        <div class="collapsible-body">
+		        		{% for item in requested %}
+		        			{% include "home/songlist.html" %} 
+		        		{% endfor %}
+			        </div>
+			    </li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}

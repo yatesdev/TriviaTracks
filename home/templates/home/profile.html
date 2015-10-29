@@ -1,0 +1,18 @@
+{%extends "home/__base.html" %}
+{% block title %} {{user.first_name}} {{user.last_name}} | {{block.super}} {% endblock %}
+{% block profile_menu %} active {% endblock %}
+{% block javascript %}{{block.super}}
+<script>
+	 $(document).ready(function() {
+    $('select').material_select();
+  });
+ </script>
+  {% endblock %}
+{% block content %} 
+	<h4>{{user.first_name}} {{user.last_name}}</h4>
+	<form class="form-group"action="{% url "profile" %}" method="POST">
+		{% csrf_token %}
+		{{profile_form.as_p}}
+		<a href="{% url "logout" %}" class="btn red left">Logout</a><button type="submit" class="btn btn-default right">Update</button>
+	</form>	
+{% endblock%}

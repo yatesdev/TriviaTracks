@@ -1,0 +1,34 @@
+{%extends "home/__base.html" %}
+{% block title %} Login | {{block.super}} {% endblock %}
+{% block login_menu %} active {% endblock %}
+{% block content %} 
+	
+	<h4>Login</h4>
+	<form action="{% url "login" %}" method="POST">
+		{% csrf_token %}
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">account_circle</i>
+				<input id="username" type="text" name="username" size="40"/>
+				<label for="username">Username</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix">lock</i>
+				<input id="password" type="password" name="password" size="0"/>
+				<label for="Password">Password</label>
+			</div>
+		</div>
+		<div class="row">
+			<button id="loginsubmit" class="btn-large col s12" type="submit">Login</button>
+		</div>
+		<div class="row">
+			<a class="btn-large blue col s12" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+		</div>
+		<div class="row">
+			<a class="btn-large yellow darken-2 col s12" href="{% url "register" %}">Sign Up</a>
+		</div>
+	</form>
+	</div>
+{% endblock%}

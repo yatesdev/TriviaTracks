@@ -1,0 +1,35 @@
+/*input[type="search"] {
+	width: 1rem;
+}
+input[type="search"]:focus {
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    width:10rem;
+
+	transform:translate(-5rem,0);
+}
+#search_icon {
+	padding-left: 13rem;
+}
+#search_icon:focus {
+}*/
+/*.text-nowrap {
+	white-space: nowrap;
+	} 
+.text-nowrap-overflow{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.search-padding{
+  padding-top:0rem;
+}
+@media (max-width: 600px){
+.search-padding{
+  padding-top:1rem;
+}*/
+.hidden {
+  display: none;
+}

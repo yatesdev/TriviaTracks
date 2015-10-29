@@ -1,0 +1,41 @@
+{%extends "home/__base.html" %} {% block title %} {{location.name}} | {{block.super}} {% endblock %} {% block location_menu %} active {% endblock %}
+{% block javascript %}{{block.super}}
+<script>
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+          accordion : true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+      });
+</script>
+ {% endblock %}
+{% block content %}
+<ul class="collapsible" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header active"><i class="material-icons">expand_more</i>Current Week</div>
+        <div class="collapsible-body">
+            {% for item in recent %}
+                {% include "home/songlist.html" %} 
+            {% endfor %}
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">Archive</div>
+        <div class="collapsible-body">
+            {% regroup archive by requestlist.tostring as archive_list %}
+            {% for request in archive_list %}
+            <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">expand_more</i>{{request.grouper}}</div>
+                    <div class="collapsible-body">
+                        {%for item in request.list %}
+                            {%include "home/songlist.html" %}
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+    </li>
+</ul>
+    
+{% endblock%}
