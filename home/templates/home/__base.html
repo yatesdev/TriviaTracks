@@ -43,28 +43,37 @@
       <!-- BEGIN SIDEBAR MENU -->
       <div class="sidebar-menu">
         <ul class="menu-items">
-          <li class="m-t-30 open">
+          <li class="m-t-30 {% block home_menu %}{% endblock %}">
             <a href="{% url "index" %}">
               <span class="title">Home</span>
             </a>
             <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
           </li>
-          <li class="">
+          <li class="{% block location_menu %}{% endblock %}">
             <a href="{% url "location" %}"><span class="title">Mad River</span></a>
             <span class="icon-thumbnail "><i class="pg-map"></i></span>
           </li>
-          <li class="">
+          <li class="{% block stats_menu %}{% endblock %}">
             <a href="#"><span class="title">Statistics</span></a>
             <span class="icon-thumbnail "><i class="pg-charts"></i></span>
           </li>
-          <li class="">
+          {% if user.userprofile.host == True %}
+          <li class="{% block host_menu %}{% endblock %}">
             <a href="{% url "admin" %}"><span class="title">Admin</span></a>
             <span class="icon-thumbnail "><i class="pg-settings"></i></span>
           </li>
-          <li class="">
+          {% endif %}
+          {% if user.is_authenticated %}
+          <li class="{% block profile_menu %}{% endblock %}">
+            <a href="{% url "profile" %}"><span class="title">{{user.first_name}} {{user.last_name}}</span></a>
+            <span class="icon-thumbnail "><i class="fa fa-user"></i></span>
+          </li>
+          {% else %}
+          <li class="{% block login_menu %}{% endblock %}">
             <a href="{% url "login" %}"><span class="title">Login</span></a>
             <span class="icon-thumbnail "><i class="fa fa-user"></i></span>
           </li>
+          {% endif %}
         </ul>
           </li>
         </ul>
@@ -142,8 +151,8 @@
                   <li>
                     <p>Trivia Tracks</p>
                   </li>
-                  <li><a href="#" class="active">Barebone template</a>
-                  </li>
+                  {% block breadcrumbs %}{% endblock %}
+                  <!-- <li><a href="#" class="active">Barebone template</a> -->
                 </ul>
                 <!-- END BREADCRUMB -->
               </div>
