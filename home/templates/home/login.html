@@ -1,34 +1,61 @@
 {%extends "home/__base.html" %}
 {% block title %} Login | {{block.super}} {% endblock %}
 {% block login_menu %} active {% endblock %}
+{% block breadcrumbs %}
+<li><a href="#" class="active">Login</a></li>
+{% endblock %}
 {% block content %} 
-	
-	<h4>Login</h4>
-	<form action="{% url "login" %}" method="POST">
-		{% csrf_token %}
-		<div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">account_circle</i>
-				<input id="username" type="text" name="username" size="40"/>
-				<label for="username">Username</label>
+<!-- 	<div class="col-xs-12">
+		<h2>Login</h2>
+		<form action="{% url "login" %}" method="POST">
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-xs-12">
+					<label for="username">Username</label>
+					<input id="username" type="text" name="username" size="40"/>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<i class="material-icons prefix">lock</i>
-				<input id="password" type="password" name="password" size="0"/>
-				<label for="Password">Password</label>
+			<div class="col-xs-6">
+				<button id="loginsubmit" class="btn btn-complete btn-cons" type="submit">Login</button>
 			</div>
-		</div>
-		<div class="row">
-			<button id="loginsubmit" class="btn-large col s12" type="submit">Login</button>
-		</div>
-		<div class="row">
-			<a class="btn-large blue col s12" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
-		</div>
-		<div class="row">
-			<a class="btn-large yellow darken-2 col s12" href="{% url "register" %}">Sign Up</a>
-		</div>
-	</form>
-	</div>
+			<div class="col-xs-6">
+				<a class="btn btn-block btn-warning btn-cons" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+			</div>
+			<div class="row">
+				<a class="btn-large yellow darken-2 col s12" href="{% url "register" %}">Sign Up</a>
+			</div>
+		</form>
+	</div> -->
+	<div class="login-container">
+        <div class="p-l-50 m-l-20 p-r-50 m-r-20 sm-p-l-15 sm-p-r-15">
+          <!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
+          <h2 class="">Sign in</h2>
+          <!-- START Login Form -->
+          <form id="form-login" class="p-t-15" role="form" action="{% url "login" %}" method="POST">
+	        {% csrf_token %}
+            <!-- START Form Control-->
+            <div class="form-group form-group-default col-md-7">
+              <label>Username</label>
+              <div class="controls">
+                <input type="text" name="username" placeholder="" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-7">
+	            <button class="btn btn-primary btn-block btn-lg btn-cons m-t-10 m-b-30" type="submit">Sign in</button>
+	            <a class="btn btn-block btn-lg btn-complete btn-cons" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+				<a class="btn btn-block btn-lg btn-warning btn-cons" href="{% url "register" %}">Sign Up</a>
+			</div>
+          </form>
+          <!--END Login Form-->
+          <!-- <div class="pull-bottom sm-pull-bottom">
+            <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
+              <div class="col-sm-9 no-padding m-t-10">
+                <p><small>
+		        		Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a></small>
+                </p>
+              </div>
+            </div>
+           </div>
+       	</div> -->
+   	</div>
 {% endblock%}

@@ -123,12 +123,12 @@ def register(request):
 		profile_form = UserProfileForm(data=request.POST)
 		if user_form.is_valid() and profile_form.is_valid():
 			user = user_form.save()
-			user.set_password(user.password)
+			user.set_password("password") #Removing passwords from logins, will have a constant from now on.
 			user.save()
 			profile = profile_form.save(commit=False)
 			profile.user = user
 			profile.save()
-			user = authenticate(username=request.POST['username'], password=request.POST['password'])
+			user = authenticate(username=request.POST['username'], password="password")
 			auth_login(request,user)
 			registered = True
 		else:
@@ -146,7 +146,7 @@ def login(request):
 
 	if request.method == 'POST':
 		username = request.POST['username']
-		password = request.POST['password']
+		password = "password"
 
 		user = authenticate(username=username, password=password)
 		if user:
@@ -156,8 +156,7 @@ def login(request):
 			else:
 				return HttpResponse("Your account has been deactivated")
 		else:
-			print("Invalid login details: {0}, {1}".format(username,password))
-			return HttpResponse("Invalid login details supplied.")
+			return render_to_response('home/login.html',{'invalid': 1},context)
 	else:
 		search_form = SearchForm()
 		return render_to_response('home/login.html',{'search_form':search_form}, context)

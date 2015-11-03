@@ -8,10 +8,9 @@ class SearchForm(forms.Form):
 	market = forms.CharField(initial='US',widget=forms.HiddenInput)
 
 class UserForm(forms.ModelForm):
-	password = forms.CharField(widget=forms.PasswordInput())
 	class Meta:
 		model = User
-		fields = ('first_name','last_name','username','email','password')
+		fields = ('first_name','last_name','username','email')
 
 class UserProfileForm(forms.ModelForm):
 	class Meta:
