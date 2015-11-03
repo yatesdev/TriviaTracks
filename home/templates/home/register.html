@@ -1,29 +1,48 @@
 {%extends "home/__base.html" %} 
 {% block title %} Register | {{block.super}} {% endblock %}
+{% block login_menu %}active{% endblock %}
+{% block breadcrumbs %}<li><a href="#" class="active">Register</a></li> {% endblock %}
 {% block javascript %}{{block.super}}
-<script>
-	 $(document).ready(function() {
-    $('select').material_select();
-  });
- </script>
-  {% endblock %}
+{% endblock %}
 {% block content %}
 <div class="col-xs-12">
 	{% if registered %}
 		<h4>Sign up successful!</h4>
 		<a href="{% url "index" %}" type="button" class="btn btn-primary">OK</a>
 	{% else %}
-		<h4>Sign up</h4>
+	<div class="col-md-8 no-padding">
+		<h2>Sign up</h2>
 		<form id="user_form" method="post" action="{% url "register" %}">
 			{% csrf_token %}
-			<div class="row">
-			{{user_form}}
+			<div class="form-group form-group-default col-xs-6">
+				{{user_form.first_name.label_tag}}
+				{{user_form.first_name}}
 			</div>
-			{{profile_form.as_p}}
-			<div class="row">
-				<button type="submit" class="btn-large col s12"><i class="material-icons">done</i></button>
+			<div class="form-group form-group-default col-xs-6">
+				{{user_form.last_name.label_tag}}
+				{{user_form.last_name}}
+			</div>
+			<div class="form-group form-group-default col-md-7">
+				{{user_form.username.label_tag}}
+				{{user_form.username}}
+			</div>
+			<div class="form-group form-group-default col-md-7">
+				{{user_form.email.label_tag}}
+				{{user_form.email}}
+			</div>
+			<div class="form-group form-group-default col-md-7 form-group-default-selectfx">
+				{{profile_form.location.label_tag}}
+				{{profile_form.location}}
+			</div>
+			<div class="form-group form-group-default col-md-7">
+				{{profile_form.team_name.label_tag}}
+				{{profile_form.team_name}}
+			</div>
+			<div class="col-md-7 no-padding">
+				<button type="submit" class="btn btn-lg btn-block btn-primary">Register</button>
 			</div>
 		</form>
+	</div>
 	{% endif %}
 </div>
 {% endblock %}
