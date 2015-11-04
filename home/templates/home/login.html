@@ -5,27 +5,6 @@
 <li><a href="#" class="active">Login</a></li>
 {% endblock %}
 {% block content %} 
-<!-- 	<div class="col-xs-12">
-		<h2>Login</h2>
-		<form action="{% url "login" %}" method="POST">
-			{% csrf_token %}
-			<div class="row">
-				<div class="col-xs-12">
-					<label for="username">Username</label>
-					<input id="username" type="text" name="username" size="40"/>
-				</div>
-			</div>
-			<div class="col-xs-6">
-				<button id="loginsubmit" class="btn btn-complete btn-cons" type="submit">Login</button>
-			</div>
-			<div class="col-xs-6">
-				<a class="btn btn-block btn-warning btn-cons" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
-			</div>
-			<div class="row">
-				<a class="btn-large yellow darken-2 col s12" href="{% url "register" %}">Sign Up</a>
-			</div>
-		</form>
-	</div> -->
 	<div class="login-container">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 sm-p-l-15 sm-p-r-15">
           <!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
@@ -46,16 +25,5 @@
 				<a class="btn btn-block btn-lg btn-warning btn-cons" href="{% url "register" %}">Sign Up</a>
 			</div>
           </form>
-          <!--END Login Form-->
-          <!-- <div class="pull-bottom sm-pull-bottom">
-            <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-              <div class="col-sm-9 no-padding m-t-10">
-                <p><small>
-		        		Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a></small>
-                </p>
-              </div>
-            </div>
-           </div>
-       	</div> -->
    	</div>
 {% endblock%}

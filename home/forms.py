@@ -36,10 +36,10 @@ class UserProfileForm(forms.ModelForm):
 		model = UserProfile
 		fields = ('location','team_name',)
 		widgets = {
-			'location' : forms.Select(attrs={'class':'cs-select form-control cs-skin-slide cs-transparent', 'data-init-plugin':'cs-select'}),
+			'location' : forms.Select(attrs={'class':'cs-select form-control cs-skin-slide cs-transparent', 'data-init-plugin':'cs-select', 'required':'true'}),
 			'team_name' : forms.TextInput(attrs={'class':'form-control', 'required':'true'}),
 		}
 		labels = {
-			'team_name' : _('Team Name'),
 			'location' : _('Location'),
+			'team_name' : _('Team Name'),
 		}
