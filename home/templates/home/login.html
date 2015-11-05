@@ -8,6 +8,9 @@
 	<div class="login-container">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 sm-p-l-15 sm-p-r-15">
           <!-- <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22"> -->
+          {%if invalid %}
+          <p class="text-danger">Invalid Login</p>
+          {% endif %}
           <h2 class="">Sign in</h2>
           <!-- START Login Form -->
           <form id="form-login" class="p-t-15" role="form" action="{% url "login" %}" method="POST">
