@@ -11,23 +11,20 @@ class SearchForm(forms.Form):
 class UserForm(forms.ModelForm):
 	class Meta:
 		model = User
-		fields = ('first_name','last_name','username','email')
+		fields = ('first_name','last_name','email')
 		widgets = {
             'first_name': forms.TextInput(attrs={'class':'form-control', 'required':'true'}),
             'last_name': forms.TextInput(attrs={'class':'form-control', 'required':'true'}),
-            'username': forms.TextInput(attrs={'class':'form-control', 'required':'true'}),
             'email': forms.EmailInput(attrs={'class':'form-control', 'required':'true'}),
         }
         labels = {
         	'first_name' : _('First Name'),
         	'last_name' : _('Last Name'),
-        	'username' : _('Username'),
         	'email' : _('Email Address'),
         }
         error_messages = {
 			'first_name' : _('First Name Required'),
 			'last_name' : _('Last Name Required'),
-			'username' : _('Username Required'),
 			'email' : _('Email Address Required'),
 		}
 

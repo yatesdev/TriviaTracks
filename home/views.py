@@ -152,13 +152,16 @@ def register(request):
 		user_form = UserForm(data=request.POST)
 		profile_form = UserProfileForm(data=request.POST)
 		if user_form.is_valid() and profile_form.is_valid():
-			user = user_form.save()
+			# user = user_form.save()
+			user = User.objects.create_user(user_form.cleaned_data['email'],user_form.cleaned_data['email'],"password")
 			user.set_password("password") #Removing passwords from logins, will have a constant from now on.
+			user.first_name = user_form.cleaned_data['first_name']
+			user.last_name = user_form.cleaned_data['last_name']
 			user.save()
 			profile = profile_form.save(commit=False)
 			profile.user = user
 			profile.save()
-			user = authenticate(username=request.POST['username'], password="password")
+			user = authenticate(username=request.POST['email'], password="password")
 			auth_login(request,user)
 			registered = True
 		else:
