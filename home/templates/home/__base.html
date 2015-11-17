@@ -49,10 +49,19 @@
             </a>
             <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
           </li>
+
+          <!-- Location -->
+          {% if user.is_authenticated %}
           <li class="{% block location_menu %}{% endblock %}">
-            <a href="{% url "location" %}"><span class="title">Mad River</span></a>
+            <a href="{% url "location" %}"><span class="title">{{user.userprofile.location.name}}</span></a>
             <span class="icon-thumbnail "><i class="pg-map"></i></span>
           </li>
+          {% else %}
+          <li class="{{location_menu.super}}">
+            <a href="{% url "location" %}"><span class="title">Location</span></a>
+            <span class="icon-thumbnail "><i class="pg-map"></i></span>
+          </li>
+          {% endif %}
           <li class="{% block stats_menu %}{% endblock %}">
             <a href="#"><span class="title">Statistics</span></a>
             <span class="icon-thumbnail "><i class="pg-charts"></i></span>
