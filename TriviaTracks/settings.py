@@ -122,5 +122,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 LOGIN_URL= '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social.backends.facebook.FacebookOAuth2',)
 
 from .secrets import *
