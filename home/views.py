@@ -89,6 +89,36 @@ def export_email(request):
 	mail.send_mail(subject, body, from_address, [to_address],fail_silently=False)
 	return HttpResponseRedirect('/')
 
+def like_song_request(request):
+	context = RequestContext(request)
+	#update like count
+	requestID = None
+	if request.method == 'GET':
+		requestID = request.GET['requestID']
+	likes = 0
+	if requestID:
+		songrequest = Request.objects.get(id=int(requestID))
+		if songrequest:
+			likes = songrequest.likes + 1
+			songrequest.likes = likes
+			songrequest.save()
+	return HttpResponse(likes)
+
+def unlike_song_request(request):
+	context = RequestContext(request)
+	#update like count
+	requestID = None
+	if request.method == 'GET':
+		requestID = request.GET['requestID']
+	likes = 0
+	if requestID:
+		songrequest = Request.objects.get(id=int(requestID))
+		if songrequest:
+			likes = songrequest.likes - 1
+			songrequest.likes = likes
+			songrequest.save()
+	return HttpResponse(likes)
+
 @login_required
 def profile(request):
 	context = RequestContext(request)

@@ -41,6 +41,7 @@ class Request(models.Model):
 	song = models.ForeignKey(Song)
 	user = models.ForeignKey(User)
 	date_requested = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+	likes = models.PositiveIntegerField(null=True, default=0)
 	def __str__(self):
 		return self.song.title + " - " + self.user.username
 

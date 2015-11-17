@@ -21,6 +21,23 @@ jQuery(document).ready(function($){
             }
         });
     });
+    // Add like functionality on click of the heart icon
+    $(".like-icon").on('click',function(event) {
+        var requestID = $(event.target).attr('id');
+        var matches = requestID.match(/like([0-9]+)/);
+        requestID = matches[1];
+        if($(this).hasClass("clicked")){
+            $.get('{% url "unlike" %}', {requestID: requestID}, function(data){
+                   $('#likecounter'+requestID).html(data);
+                   $('#like'+requestID).removeClass('fa-heart text-danger clicked').addClass('fa-heart-o')
+            });
+        } else {
+            $.get('{% url "like" %}', {requestID: requestID}, function(data){
+                   $('#likecounter'+requestID).html(data);
+                   $('#like'+requestID).removeClass('fa-heart-o').addClass('fa-heart text-danger clicked')
+            });
+        }
+    });
 });
 </script>
 {% endblock %}

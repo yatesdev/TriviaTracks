@@ -28,6 +28,8 @@ urlpatterns = [
     url(r'^register/$',views.register, name='register'),
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
+    url(r'^like/$',views.like_song_request, name='like'),
+    url(r'^unlike/$',views.unlike_song_request, name='unlike'),
     url(r'^$', views.index, name='index'),
     url('', include('social.apps.django_app.urls', namespace='social')),
 ]
