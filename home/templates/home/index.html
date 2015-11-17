@@ -2,6 +2,8 @@
 {% block title %} Index | {{block.super}} {% endblock %} 
 {% block home_menu %} active {% endblock %} 
 {% block javascript %}{{block.super}}
+{% block breadcrumbs %}<li><a href="#" class="active">Timeline</a>
+                  {% endblock %}
 <script>
 jQuery(document).ready(function($){
     var $timeline_block = $('.timeline-block');
@@ -47,6 +49,7 @@ jQuery(document).ready(function($){
 	<div class="timeline-container top-circle">
 	  <section class="timeline">
 	    {% for item in requested %}
+            {% cycle 'danger' 'success' 'active' 'warning' 'info' 'primary' as rowcolors silent %}
 			{% include "home/songlist.html" %} 
 		{% endfor %}
 		</section>

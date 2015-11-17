@@ -1,5 +1,5 @@
 <div class="timeline-block">
-  <div class="timeline-point success">
+  <div class="timeline-point {{rowcolors}}">
     <i class="fa fa-music"></i>
   </div><!-- timeline-point -->
   <!-- timeline-point -->
@@ -15,7 +15,7 @@
         </h6>
       </div>
       <div class="card-description overflow-ellipsis" style="background-image: url('{{gradient}}'),url('{{item.song.album_art_url}}'); background-size: 100% 100%,cover; background-repeat: repeat-x; height:140px">
-        <span class="text-white font-montserrat fs-11 pull-bottom p-b-50"><span class="h4">{{item.song.title}}</span><br/>{{item.song.artist_name}}</p>
+        <div class="text-white font-montserrat fs-11 p-t-80 overflow-ellipsis"><span class="h4">{{item.song.title}}</span><br/>{{item.song.artist_name}}</p></div>
       </div>
       <div class="card-footer clearfix">
         <div class="time">{{item.date_requested|timesince }} ago</div>
