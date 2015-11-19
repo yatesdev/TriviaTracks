@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-7">
 	            <button class="btn btn-primary btn-block btn-lg btn-cons m-t-10 m-b-30" type="submit">Sign in</button>
-	            <a class="btn btn-block btn-lg btn-complete btn-cons" href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+	            <a class="btn btn-block btn-lg btn-complete btn-cons" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
 				<a class="btn btn-block btn-lg btn-warning btn-cons" href="{% url "register" %}">Sign Up</a>
 			</div>
           </form>
