@@ -39,11 +39,20 @@
                 })
                 .done(function(response) {
                     console.log("success");
-                    var appendString;
+                    var appendString = "";
                     for(var i =0;i < response.tracks.items.length-1;i++){
-                        appendString += '<div class="col-md-4 result-item overflow-ellipsis" data-target="#modalSlideUp" data-toggle="modal"><div class="thumbnail-wrapper d48 inline m-t-10"><img class="result-album-art" src="'+response.tracks.items[i].album.images[1].url+'"/></div><div class="p-l-10 inline p-t-0"><h5 class="m-b-5"><span class="semi-bold result-trackname">'+response.tracks.items[i].name+'</span></h5><p class="hint-text result-artist">'+response.tracks.items[i].artists[0].name+'</div><div class="result-spotify-id hidden">'+response.tracks.items[i].id+'</div></div>';
+                        appendString += '<div class="col-md-4 result-item overflow-ellipsis" data-target="#modalSlideUp" data-toggle="modal">'+
+                                            '<div class="thumbnail-wrapper d48 inline m-t-10">'+
+                                                '<img class="result-album-art" src="'+response.tracks.items[i].album.images[1].url+'"/>'+
+                                            '</div>'+
+                                            '<div class="p-l-10 inline p-t-0">'+
+                                                '<h5 class="m-b-5 semi-bold result-trackname">'+response.tracks.items[i].name+'</h5>'+ 
+                                                '<p class="hint-text result-artist">'+response.tracks.items[i].artists[0].name+'</p>'+
+                                                '<div class="result-spotify-id hidden">'+response.tracks.items[i].id+'</div>'+
+                                            '</div>'+
+                                        '</div>';
                     }
-                    searchResults.find('.row').html('');
+                    searchResults.find('.row').empty();
                     searchResults.find('.row').append(appendString);
                     $('.result-item').click(function() {
                         $('.modal-body-title').html($(this).find('.result-trackname').html());
