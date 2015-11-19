@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<div class="overlay" style="display: none" data-pages="search">
+      <!-- BEGIN Overlay Content !-->
+      <div class="overlay-content has-results m-t-20">
+        <!-- BEGIN Overlay Header !-->
+        <div class="container-fluid">
+          <!-- BEGIN Overlay Logo !-->
+          <img class="overlay-brand" src="{% static "home/assets/images/TriviaTracksLogo.png" %}" alt="logo" data-src="{% static "home/assets/images/TriviaTracksLogo.png" %}" data-src-retina="{% static "home/assets/images/TriviaTracksLogo.png" %}" width="78" height="22">
+          <!-- END Overlay Logo !-->
+          <!-- BEGIN Overlay Close !-->
+          <a href="#" class="close-icon-light overlay-close text-black fs-16">
+            <i class="pg-close"></i>
+          </a>
+          <!-- END Overlay Close !-->
+        </div>
+        <!-- END Overlay Header !-->
+        <div class="container-fluid">
+          <!-- BEGIN Overlay Controls !-->
+          <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+          <br>
+          <div class="inline-block m-l-10">
+            <p class="fs-13">Press enter to search</p>
+          </div>
+          <!-- END Overlay Controls !-->
+        </div>
+        <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
+        <div class="container-fluid">
+         <!--  <span>
+                <strong>suggestions :</strong>
+            </span> -->
+          <!-- <span id="overlay-suggestions"></span> -->
+          <div class="search-results">
+            <p class="bold">Search Results</p>
+            <div class="row">
+              <div class="col-md-12">
+                <!-- Results generate here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Overlay Search Results !-->
+      </div>
+      <!-- END Overlay Content !-->
+    </div>
+    <!-- END OVERLAY -->
+
+    <!-- Modal -->
+    <div class="modal fade slide-up disable-scroll" id="modalSlideUp" tabindex="-1" role="dialog" aria-labelledby="modalSlideUpLabel" aria-hidden="false">
+        <div class="modal-dialog ">
+            <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                      <i class="pg-close fs-14"></i>
+                    </button>
+                    <h5><span class="semi-bold">Confirm</span></h5>
+                </div>
+                <div class="modal-body">
+                    Do you want to request <span class="bold modal-body-title"></span> by <span class="modal-body-artist"></span>?
+                    <br/>
+                    <br/>
+                    <!--Hidden data-->
+                    <span class="modal-body-album-art hidden"></span>
+                    <span class="modal-body-spotify-id hidden"></span>
+                    <button type="button" id="confirmRequestBtn" class="btn btn-success btn-block" data-dismiss="modal">Yes</i></button>
+                </div>
+            </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+    <!-- /.modal-dialog -->
+
+    <!-- REQUEST FORM -->
+    <form id="requestForm" action="{% url "request" %}" method="POST">
+        {% csrf_token %}
+        <input id="requestForm_track_title" type="hidden" name="track_title">
+        <input id="requestForm_track_artist" type="hidden" name="artist_name">
+        <input id="requestForm_album_art" type="hidden" name="album_art">
+        <input id="requestForm_spotify_id" type="hidden" name="track_spotify_id">
+    </form>
