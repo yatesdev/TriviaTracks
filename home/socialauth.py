@@ -6,6 +6,8 @@ def create_user_profile(strategy, details, response, user, *args, **kwargs):
 		# if it is new, we need a user profile
 		if kwargs['is_new']:
 			profile_user = user
+			user.set_password("password")
+			user.save()
 			location = Location.objects.get(name="Mad River")
 			host = False
 			team_name = ""
