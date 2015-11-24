@@ -14,7 +14,6 @@ from django.conf import settings
 from collections import defaultdict
 
 # Create your views here.
-@login_required
 def index(request):
 	# Recently Requested --Probably needs refactoring at a later point
 	requested = Request.objects.order_by('-date_requested')[:20].prefetch_related('song','requestlist','user')
@@ -59,7 +58,6 @@ def search(request):
 	passable.update({"search_form":search_form})
 	return render_to_response(template,passable,context)
 
-@login_required
 def location(request):
 	context = RequestContext(request)
 	if(request.user.is_anonymous()):
@@ -73,7 +71,6 @@ def location(request):
 	passable = {"search_form" : search_form,"recent": recent,"archive": archive,"location": location}
 	return render_to_response(template,passable,context)
 
-@login_required
 def admin(request):
 	context = RequestContext(request)
 	template = "home/admin.html"
