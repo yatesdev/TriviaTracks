@@ -1,6 +1,7 @@
 {% extends "home/__base.html" %} 
 {% block title %} Admin | {{block.super}} {% endblock %}
 {% block host_menu %} active {% endblock %}
+{% block host_menu_icon %} bg-info {% endblock %}
 {% block content %}
 <h4>Admin</h4>
 <form method="POST" action="{% url "export_email" %}">

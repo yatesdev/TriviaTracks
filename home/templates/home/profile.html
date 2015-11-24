@@ -1,6 +1,7 @@
 {%extends "home/__base.html" %}
 {% block title %} {{user.first_name}} {{user.last_name}} | {{block.super}} {% endblock %}
 {% block profile_menu %} active {% endblock %}
+{% block profile_menu_icon %} bg-danger {% endblock %}
 {% block breadcrumbs %}<li><a href="#" class="active">Profile</a></li> {% endblock %}
 {% block javascript %}{{block.super}}
 <script>
