@@ -1,4 +1,7 @@
-{%extends "home/__base.html" %} {% block title %} {{location.name}} | {{block.super}} {% endblock %} {% block location_menu %} active {% endblock %}
+{%extends "home/__base.html" %}
+{% block title %} {{location.name}} | {{block.super}} {% endblock %} 
+{% block location_menu %} active {% endblock %}
+{% block location_menu_icon %} bg-warning {% endblock %}
 {% block javascript %}{{block.super}}
 <script>
     $(document).ready(function(){
