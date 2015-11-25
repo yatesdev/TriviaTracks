@@ -20,7 +20,7 @@
       <div class="card-footer clearfix">
         <div class="time">{{item.date_requested|timesince }} ago</div>
         <ul class="reactions">
-          <li><span id="likecounter{{item.id}}">{{item.likes}}</span> Likes <span class="h4"><i id="like{{item.id}}" class="fa fa-heart-o like-icon"></i></span></li>
+          <li><span id="likecounter{{item.id}}">{{item.likes}}</span> Like{{item.likes|pluralize}} <span class="h4"><i id="like{{item.id}}" class="fa fa-heart-o like-icon"></i></span></li>
         </ul>
       </div>
     </div>
