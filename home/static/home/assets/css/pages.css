@@ -993,7 +993,7 @@ body.dashboard .page-container {
 /* Pages Image Icon Sent - Pixel Perfect 
 ------------------------------------
 */
-.icon-set {
+/*.icon-set {
   background: url('../img/icons/top_tray.png') no-repeat;
   position: relative;
   display: block;
@@ -1033,7 +1033,7 @@ body.dashboard .page-container {
 .scroll {
   position: relative;
   overflow: auto;
-}
+}*/
 /* Pages Scroll bar
 ------------------------------------
 */
@@ -12807,11 +12807,11 @@ Main components
 }
 /*** Retina Display Images **/
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 200/100), only screen and (min-device-pixel-ratio: 2) {
-  .icon-set {
+  /*.icon-set {
     background: url('../img/icons/top_tray_2x.png');
     position: relative;
     background-size: 95px 19px;
-  }
+  }*/
   .editor-icon {
     background-image: url("../img/editor_tray_2x.png");
     background-size: 480px 40px;

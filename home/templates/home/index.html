@@ -2,11 +2,11 @@
 {% block title %} Index | {{block.super}} {% endblock %} 
 {% block home_menu %} active {% endblock %} 
 {% block home_menu_icon %}bg-success {% endblock %}
-{% block javascript %}{{block.super}}
-{% block breadcrumbs %}<li><a href="#" class="active">Timeline</a>
-                  {% endblock %}
+{% block breadcrumbs %}<li><a href="#" class="active">Timeline</a>{% endblock %}
+{% block javascript %}{{block.super}} 
+
 <script>
-jQuery(document).ready(function($){
+$(document).ready(function($){
     var $timeline_block = $('.timeline-block');
 
     //hide timeline blocks which are outside the viewport
@@ -41,6 +41,13 @@ jQuery(document).ready(function($){
             });
         }
     });
+    $('body').pgNotification({
+        style:'flip',
+        postition:'top-right',
+        message:'Press the search icon in the top corner to make a request.',
+        type:'info',
+        timeout:2000,
+        }).show();
 });
 </script>
 {% endblock %}

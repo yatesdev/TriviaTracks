@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^search/$', views.search, name='search'),
     url(r'^request/$', views.request, name='request'),
     url(r'^location/$', views.location, name='location'),
+    url(r'^statistics/$',views.statistics, name='statistics'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^register/$',views.register, name='register'),
     url(r'^login/$', views.login, name='login'),

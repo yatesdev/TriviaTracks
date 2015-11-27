@@ -1,7 +1,7 @@
 from django.shortcuts import *
 from django.http import HttpResponse, JsonResponse, HttpRequest, HttpResponseRedirect
 from django.template import RequestContext, loader
-from django.core import serializers
+from django.core import serializers, mail
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -9,9 +9,9 @@ from .models import Song,RequestList,Request, Location
 from .forms import SearchForm,UserForm,UserProfileForm
 import requests
 from datetime import *
-from django.core import mail
 from django.conf import settings
 from collections import defaultdict
+from django.db.models import Count
 
 # Create your views here.
 @login_required
@@ -72,6 +72,18 @@ def location(request):
 	search_form = SearchForm()
 	template = "home/locations.html"
 	passable = {"search_form" : search_form,"recent": recent,"archive": archive,"location": location}
+	return render_to_response(template,passable,context)
+
+@login_required
+def statistics(request):
+	context = RequestContext(request)
+
+	#Data!!!
+	most_liked = Request.objects.order_by('-likes').prefetch_related('song','requestlist','user')[:3]
+	most_active = User.objects.annotate(num_requests=Count('request')).order_by('-num_requests')[:3]
+
+	template = "home/statistics.html"
+	passable = {"most_liked" : most_liked, "most_active" : most_active}
 	return render_to_response(template,passable,context)
 
 @login_required

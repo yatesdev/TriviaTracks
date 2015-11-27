@@ -1,0 +1,25 @@
+{%extends "home/__base.html" %} 
+{% block title %} Index | {{block.super}} {% endblock %} 
+{% block stats_menu %} active {% endblock %} 
+{% block stats_menu_icon %} bg-primary {% endblock %}
+{% block breadcrumbs %}<li><a href="#" class="active">Statistics</a></li> {% endblock %}
+{% block javascript %}{{block.super}}
+{% endblock %}
+{% block content %}
+<div class="col-xs-12">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="h3 font-montserrat">Most Active Users</div>
+      {% for user in most_active %}
+      <div class="p-l-10"><span class="text-primary bold fs-16">{{user.get_full_name}}</span> - {{user.num_requests}} Request{{user.num_requests|pluralize}}</div>
+      {% endfor %}
+    </div>
+    <div class="col-md-6">
+      <div class="h3 font-montserrat">Most Liked Requests</div>
+      {% for requests in most_liked %}
+      <div class="p-l-10"><span class="text-primary bold fs-16">{{requests.likes}}</span> - <span class="bold">{{requests.song.title}}</span> by  {{requests.song.artist_name}}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
