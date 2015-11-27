@@ -63,7 +63,7 @@
           </li>
           {% endif %}
           <li class="{% block stats_menu %}{% endblock %}">
-            <a href="#"><span class="title">Statistics</span></a>
+            <a href="{% url "statistics" %}"><span class="title">Statistics</span></a>
             <span class="icon-thumbnail {% block stats_menu_icon %}{% endblock %}"><i class="pg-charts"></i></span>
           </li>
           {% if user.userprofile.host == True %}
