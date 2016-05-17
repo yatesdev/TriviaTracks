@@ -2,6 +2,9 @@
 secrets.py
 db.sqlite3
 
+#Vagrant Related
+.vagrant/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
