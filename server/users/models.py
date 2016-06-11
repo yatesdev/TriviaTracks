@@ -11,5 +11,3 @@ class UserProfile(models.Model):
 	team_name = models.CharField(max_length=200,blank=True)
 	def __unicode__(self):
 		return self.user.username
-
-
