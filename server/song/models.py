@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from playlists.models import *
+from playlist.models import *
 
 # Create your models here.
 class AlbumMetadata(models.Model):

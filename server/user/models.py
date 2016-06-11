@@ -2,8 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-from songrequests.models import *
-from locations.models import *
+from songrequest.models import *
+from location.models import *
 
 class SpotifyUser(models.Model):
 	display_name = models.CharField(max_length=255)
