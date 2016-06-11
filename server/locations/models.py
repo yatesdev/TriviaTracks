@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from users.models import *
 
 # Create your models here.
 class Location(models.Model):
@@ -16,5 +17,6 @@ class Location(models.Model):
 		(7,'Sunday'),
 	)
 	schedule_day = models.PositiveSmallIntegerField(null=True,choices=SCHEDULE_CHOICES,default=None)
+	host = models.ForeignKey(User)
 	def __unicode__(self):
 		return self.name

@@ -33,7 +33,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 # Application definition
 
 INSTALLED_APPS = [
-    'songrequests','users','locations','song',
+    'songrequests','users','locations','song', 'playlists',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
