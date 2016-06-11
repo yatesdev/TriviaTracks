@@ -7,7 +7,5 @@ echo "Installing Nginx"
 sudo apt-get install nginx -y
 echo "Installing PIP"
 sudo apt-get install python-pip -y
-echo "Install Django"
-sudo pip install django
-echo "Install Python-Social-Auth"
-sudo pip install python-social-auth
+echo "Install Requirements.txt"
+sudo pip install -r /vagrant/requirements.txt
