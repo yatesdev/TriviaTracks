@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from models import *
 from rest_framework import viewsets
-from users.serializers import UserSerializer, GroupSerializer
+from users.serializers import *
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -18,3 +18,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all().order_by('id')
+    serializer_class = UserProfileSerializer
