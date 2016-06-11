@@ -32,4 +32,4 @@ class SongMetadata(models.Model):
 
 class Song(models.Model):
 	metadata = models.ForeignKey(SongMetadata)
-	playlist = models.ForeignKey(Playlist)
+	playlist = models.ForeignKey(Playlist, null=True, blank=True)
