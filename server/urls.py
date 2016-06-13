@@ -18,6 +18,7 @@ from django.contrib import admin
 from rest_framework import routers
 from user import views as UserViews
 from song import views as SongViews
+from songrequest import views as RequestViews
 
 router = routers.DefaultRouter()
 
@@ -25,6 +26,7 @@ router.register(r'groups', UserViews.GroupViewSet)
 router.register(r'users', UserViews.UserProfileViewSet)
 router.register(r'userdetail', UserViews.UserViewSet)
 router.register(r'songs', SongViews.SongViewSet)
+router.register(r'request', RequestViews.SongRequestViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
