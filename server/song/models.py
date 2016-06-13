@@ -10,12 +10,16 @@ class AlbumMetadata(models.Model):
 	href = models.URLField()
 	album_type = models.CharField(max_length=255)
 	uri = models.CharField(max_length=255)
+	def __unicode__(self):
+		return self.name
 
 class ArtistMetadata(models.Model):
 	spotifyID = models.CharField(max_length=255)
 	name = models.CharField(max_length=255)
 	href = models.URLField()
 	uri = models.CharField(max_length=255)
+	def __unicode__(self):
+		return self.name
 
 class SongMetadata(models.Model):
 	album = models.ForeignKey(AlbumMetadata)
@@ -29,7 +33,11 @@ class SongMetadata(models.Model):
 	preview_url = models.URLField()
 	track_number = models.IntegerField()
 	disc_number = models.IntegerField()
+	def __unicode__(self):
+		return self.name + " - " + self.artist.name 
 
 class Song(models.Model):
 	metadata = models.ForeignKey(SongMetadata)
 	playlist = models.ForeignKey(Playlist, null=True, blank=True)
+	def __unicode__(self):
+		return self.metadata.name + " - " + self.metadata.artist.name
