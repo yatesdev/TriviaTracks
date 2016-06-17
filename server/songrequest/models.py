@@ -11,4 +11,4 @@ class SongRequest(models.Model):
 	date_requested = models.DateTimeField(auto_now_add=True)
 	likes = models.PositiveIntegerField(default=0)
 	def __unicode__(self):
-		return self.song.title + " - " + self.user.username
+		return self.song.metadata.name + " - " + self.user.username
