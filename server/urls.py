@@ -19,6 +19,7 @@ from rest_framework import routers
 from user import views as UserViews
 from song import views as SongViews
 from songrequest import views as RequestViews
+from playlist import views as PlaylistViews
 from spotify import views as Spotify
 
 router = routers.DefaultRouter()
@@ -28,6 +29,7 @@ router.register(r'users', UserViews.UserProfileViewSet)
 router.register(r'userdetail', UserViews.UserViewSet)
 router.register(r'songs', SongViews.SongViewSet)
 router.register(r'request', RequestViews.SongRequestViewSet)
+router.register(r'playlist', PlaylistViews.PlaylistViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
