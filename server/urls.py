@@ -19,6 +19,7 @@ from rest_framework import routers
 from user import views as UserViews
 from song import views as SongViews
 from songrequest import views as RequestViews
+from spotify import views as Spotify
 
 router = routers.DefaultRouter()
 
@@ -31,6 +32,7 @@ router.register(r'request', RequestViews.SongRequestViewSet)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^search/', Spotify.search)
 
 ]
