@@ -16,14 +16,14 @@ class Location(models.Model):
 		(7,'Sunday'),
 	)
 	schedule_day = models.PositiveSmallIntegerField(null=True,choices=SCHEDULE_CHOICES,default=None)
-	def __str__(self):
+	def __unicode__(self):
 		return self.name
 
 class RequestList(models.Model):
 	location = models.ForeignKey(Location)
 	startDate = models.DateTimeField(blank=True)
 	endDate = models.DateTimeField(blank=True)
-	def __str__(self):
+	def __unicode__(self):
 		return self.location.name + " - " + str(self.startDate) + " | " + str(self.endDate)
 	def tostring(self):
 		return str(self.startDate.strftime("%b %d, %y")) + " - " + str(self.endDate.strftime("%b %d, %y"))
@@ -33,7 +33,7 @@ class Song(models.Model):
 	track_id = models.CharField(max_length=150, default='')
 	album_art_url = models.CharField(max_length=200, default='')
 	artist_name = models.CharField(max_length=150, default='')
-	def __str__(self):
+	def __unicode__(self):
 		return self.title + " - " + self.artist_name
 
 class Request(models.Model):
@@ -42,7 +42,7 @@ class Request(models.Model):
 	user = models.ForeignKey(User)
 	date_requested = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 	likes = models.PositiveIntegerField(null=True, default=0)
-	def __str__(self):
+	def __unicode__(self):
 		return self.song.title + " - " + self.user.username
 
 class UserProfile(models.Model):
@@ -50,7 +50,7 @@ class UserProfile(models.Model):
 	location = models.ForeignKey(Location)
 	host = models.BooleanField(default=False)
 	team_name = models.CharField(max_length=200, blank=True)
-	def __str__(self):
+	def __unicode__(self):
 		return self.user.username
 
 
