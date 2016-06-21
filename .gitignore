@@ -1,3 +1,6 @@
+#Sublime Text Related
+*.sublime-project
+*.sublime-workspace
 #Django Related
 secrets.py
 db.sqlite3
