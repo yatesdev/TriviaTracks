@@ -8,7 +8,7 @@ sudo apt-get install nginx -y
 echo "Installing PIP"
 sudo apt-get install python-pip -y
 echo "Install Requirements.txt"
-sudo pip install -r /vagrant/requirements.txt
+sudo pip install -r /vagrant/server/requirements.txt
 echo "Install NodeJS"
 sudo apt-get install nodejs -y
 echo "Install NPM"
