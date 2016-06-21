@@ -10,7 +10,7 @@ class PlaylistMetadataSerializer(serializers.ModelSerializer):
 				  'public',
 				  'snapshotID')
 class PlaylistSerializer(serializers.ModelSerializer):
-	metadata = PlaylistMetadataSerializer(read_only=True)
+	metadata = PlaylistMetadataSerializer()
 	class Meta:
 		model = Playlist
 		fields = ('metadata','description','owner')
