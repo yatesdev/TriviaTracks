@@ -12,3 +12,8 @@ sudo pip install -r /vagrant/server/requirements.txt
 echo "Install NodeJS"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+mkdir ~/node_modules
+ln -s /home/vagrant/node_modules /vagrant/client/node_modules
+cd /vagrant/client
+npm install
