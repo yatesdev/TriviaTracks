@@ -4,13 +4,6 @@
   "version": "0.0.1",
   "author": "Mike Yates <mike@yatesdev.com>",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "redux",
-    "es6",
-    "babel",
-    "webpack",
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/yatesdev/TriviaTracks.git"
