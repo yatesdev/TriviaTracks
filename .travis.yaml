@@ -1,0 +1,12 @@
+language: node_js
+sudo: required
+dist: trusty
+node_js: 
+  - "6"
+cache:
+  directories:
+    - node_modules
+before_install:
+  - "npm -v"
+install:
+  - "npm install"
