@@ -1,6 +1,6 @@
+
 import React, { Component, PropTypes } from 'react';
 import SongListItem from '../SongListItem/SongListItem';
-import { List } from 'material-ui/List';
 
 export default class SongList extends Component {
 	static propTypes = {
@@ -13,17 +13,18 @@ export default class SongList extends Component {
 				<SongListItem
 					key={song.id}
 					id= {song.id}
-					trackName = {song.trackName}
-					artistName = {song.artistName} />
+					trackName = {song.metadata.name}
+					artistName = {song.metadata.artist.name}
+					albumName = {song.metadata.album.name} />
 			)
 		);
 	}
 
 	render () {
 		return (
-			<List className="songList">
+			<div className="songList">
 				{this.renderList()}
-			</List>
+			</div>
 		);
 	}
 }

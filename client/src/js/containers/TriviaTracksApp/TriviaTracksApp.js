@@ -5,23 +5,28 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as FriendsActions from '../../actions/FriendsActions';
-import { AddFriendInput, TopBar, SongList } from '../../components';
+import { AddFriendInput, SongList, RequestList, Header } from '../../components';
 
-class FriendListApp extends Component {
+class TriviaTracksApp extends Component {
 
   static propTypes = {
     friendList: PropTypes.object.isRequired,
     songList: PropTypes.object.isRequired,
+    requestList: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
   };
 
   render () {
-    const { friendList: { friendsById }, songList: {songsById}, actions } = this.props;
+    const { friendList: { friendsById }, songList: {songs}, requestList: {requests}, actions } = this.props;
 
     return (
-      <div className="triviaTracksApp">
-        <TopBar />
-        <SongList songs={songsById} />
+      <div className="triviaTracksApp fixed-header menu-pin menu-behind">
+        <div className="page-content-wrapper">
+          <div className="content">
+            <SongList songs={songs} />
+            <RequestList requests={requests} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -30,7 +35,8 @@ class FriendListApp extends Component {
 function mapStateToProps(state) {
   return {
     friendList: state.friendList,
-    songList: state.songList
+    songList: state.songList,
+    requestList: state.requestList
   };
 }
 
@@ -43,4 +49,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FriendListApp);
+)(TriviaTracksApp);
