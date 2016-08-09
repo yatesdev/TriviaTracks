@@ -1,7 +1,9 @@
-.DS_Store
-.idea
-*.iml
-node_modules/
-build/
-*.log*
-npm-debug.log
+.DS_STORE
+*.log
+
+node_modules
+
+dist
+coverage
+
+.idea/
