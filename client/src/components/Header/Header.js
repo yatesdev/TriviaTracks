@@ -3,15 +3,18 @@ import { IndexLink, Link } from 'react-router'
 import classes from './Header.scss'
 
 export const Header = () => (
-  <div>
-    <h1>React Redux Starter Kit</h1>
-    <IndexLink to='/' activeClassName={classes.activeRoute}>
-      Home
-    </IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName={classes.activeRoute}>
-      Counter
-    </Link>
+  <div className="page-container">
+    <div className="header">
+      <div className="pull-left full-height visible-sm visible-xs">
+        <div className="sm-action-bar">
+          <a className="btn-link toggle-sidebar">
+            <span className="icon-set menu-hamburger p-b-15">
+              <i className="fa fa-navicon"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 )
 
