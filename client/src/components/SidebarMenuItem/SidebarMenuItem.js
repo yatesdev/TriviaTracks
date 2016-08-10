@@ -1,16 +1,18 @@
 import React,{ Component, PropTypes } from 'react'
+import { Router, Route, Link, browserHistory } from 'react-router'
 import classes from './SidebarMenuItem.scss'
 
 export default class SidebarMenuItem extends React.Component {
 	static propTypes = {
-		name: React.PropTypes.string.isRequired
+		name: PropTypes.string.isRequired,
+		href: PropTypes.string.isRequired
 	}
 	render() {
 		return(
 			<li>
-				<a href="#">
+				<Link to={this.props.href} activeClassName="active">
 					<span className="title">{this.props.name}</span>
-				</a>
+				</Link>
 				<span className="icon-thumbnail">
 					<i className="pg-home"></i>
 				</span>

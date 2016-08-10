@@ -6,10 +6,12 @@ import SidebarMenu from '../SidebarMenu'
 export default class Sidebar extends React.Component {
 	render() {
 		const menuItems = [{
-			name: 'Home'
+			name: 'Home',
+			href: '/'
 		},
 		{
-			name: 'Location'
+			name: 'Location',
+			href: '/'
 		}];
 		return(
 			<div className="Sidebar page-sidebar">

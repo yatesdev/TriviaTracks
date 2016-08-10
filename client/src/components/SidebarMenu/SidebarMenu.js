@@ -12,7 +12,8 @@ export default class SidebarMenu extends React.Component {
 			(
 				<SidebarMenuItem
 					key={index}
-					name={link.name} />
+					name={link.name}
+					href={link.href} />
 			)
 		);
 	}
