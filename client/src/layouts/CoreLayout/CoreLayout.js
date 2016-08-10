@@ -7,9 +7,15 @@ import '../../styles/core.scss'
 export const CoreLayout = ({ children }) => (
   <div className='fixed-header menu-pin menu-behind'>
   	<Sidebar />
-    <Header />
-    <div className="page-content-wrapper col-xs-12">
-      {children}
+  	<div className="page-container">
+    	<Header />
+    	<div className="page-content-wrapper">
+    		<div className="content">
+	    		<div className="container-fluid container-fixed-lg">
+	      		{children}
+	      	</div>
+	      </div>
+    	</div>
     </div>
   </div>
 )
