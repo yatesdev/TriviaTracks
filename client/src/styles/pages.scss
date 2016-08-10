@@ -11928,10 +11928,10 @@ Main components
     transform: translate3d(-14px, 0, 0);
     -webkit-transform: -webkit-translate3d(-14px, 0, 0);
   }
-  body.menu-behind .page-sidebar {
+  .menu-behind .page-sidebar {
     z-index: 799;
   }
-  body.menu-behind .header .brand {
+  .menu-behind .header .brand {
     width: 200px;
     text-align: left;
     padding-left: 20px;
