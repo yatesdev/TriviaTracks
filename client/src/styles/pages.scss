@@ -3586,9 +3586,9 @@ Misc buttons
 /* Pages Notifications plugin
 --------------------------------------------------
 */
-body.menu-pin > .pgn-wrapper[data-position$='-left'],
-body.menu-pin > .pgn-wrapper[data-position="top"],
-body.menu-pin > .pgn-wrapper[data-position="bottom"] {
+.menu-pin > .pgn-wrapper[data-position$='-left'],
+.menu-pin > .pgn-wrapper[data-position="top"],
+.menu-pin > .pgn-wrapper[data-position="bottom"] {
   left: 250px;
 }
 .pgn-wrapper {
@@ -11896,35 +11896,35 @@ Main components
     -webkit-transform: none !important;
     -ms-transform: none !important;
   }
-  body.menu-pin {
+  .menu-pin {
     overflow-x: hidden;
   }
-  body.menu-pin .header .brand {
+  .menu-pin .header .brand {
     width: 245px;
   }
-  body.menu-pin .page-container {
+  .menu-pin .page-container {
     padding-left: 0;
   }
-  body.menu-pin .page-container .page-content-wrapper .content {
+  .menu-pin .page-container .page-content-wrapper .content {
     padding-left: 250px;
   }
-  body.menu-pin .page-container .page-content-wrapper .footer {
+  .menu-pin .page-container .page-content-wrapper .footer {
     left: 250px;
   }
-  body.menu-pin [data-toggle-pin="sidebar"] > i:before {
+  .menu-pin [data-toggle-pin="sidebar"] > i:before {
     content: "\f192";
   }
-  body.menu-pin .page-sidebar {
+  .menu-pin .page-sidebar {
     transform: translate(210px, 0) !important;
     -webkit-transform: translate(210px, 0) !important;
     -ms-transform: translate(210px, 0) !important;
     width: 250px;
   }
-  body.menu-pin .page-sidebar .sidebar-header .sidebar-header-controls {
+  .menu-pin .page-sidebar .sidebar-header .sidebar-header-controls {
     transform: translateX(18px);
     -webkit-transform: translateX(18px);
   }
-  body.menu-pin .page-sidebar .menu-items .icon-thumbnail {
+  .menu-pin .page-sidebar .menu-items .icon-thumbnail {
     transform: translate3d(-14px, 0, 0);
     -webkit-transform: -webkit-translate3d(-14px, 0, 0);
   }
