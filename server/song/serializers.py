@@ -31,7 +31,7 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 	metadata = SongMetadataSerializer(read_only=True)
 	class Meta:
     		model = Song
-        	fields = ('metadata','playlist')
+        	fields = ('id','metadata','playlist')
 
 
 

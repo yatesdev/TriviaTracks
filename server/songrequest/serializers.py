@@ -11,5 +11,5 @@ class SongRequestDetailSerializer(SongRequestSerializer):
 	user = UserSerializer(read_only=True)
 	class Meta:
 		model = SongRequest
-		fields = ('song','user', 'date_requested', 'likes')
+		fields = ('id','song','user', 'date_requested', 'likes')
 		depth = 3

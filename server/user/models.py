@@ -14,7 +14,7 @@ class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 	location = models.ForeignKey(Location)
 	team_name = models.CharField(max_length=200,blank=True)
-	spotifyUser = models.ForeignKey(SpotifyUser)
+	spotifyUser = models.ForeignKey(SpotifyUser,null=True, blank=True)
 	def __unicode__(self):
 		return self.user.username
 
