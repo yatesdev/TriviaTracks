@@ -1,11 +1,14 @@
 import React from 'react'
 import classes from './Sidebar.scss'
+import SidebarHeader from '../SidebarHeader'
 
 export default class Sidebar extends React.Component {
 	render() {
 		return(
-			<div>
-				<h1>Sidebar</h1>
+			<div className="Sidebar page-sidebar">
+				<div className="sidebar-overlay-slide from-top">
+				</div>
+				<SidebarHeader />
 			</div>
 		);
 	}
