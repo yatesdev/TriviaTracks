@@ -13,14 +13,16 @@ export default class SidebarMenu extends React.Component {
 				<SidebarMenuItem
 					key={index}
 					name={link.name}
-					href={link.href} />
+					href={link.href}
+					iconClass={link.iconClass} />
 			)
 		);
 	}
 	render() {
 		return (
 			<div className="sidebar-menu">
-				<ul className="menu-items m-t-30">
+				<ul className="menu-items">
+					<div className="m-t-30"></div>
 					{this.renderList()}
 				</ul>
 			</div>

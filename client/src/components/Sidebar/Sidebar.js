@@ -7,11 +7,13 @@ export default class Sidebar extends React.Component {
 	render() {
 		const menuItems = [{
 			name: 'Home',
-			href: '/'
+			href: '/',
+			iconClass: 'fa fa-home'
 		},
 		{
 			name: 'Location',
-			href: '/'
+			href: '/',
+			iconClass: 'fa fa-map-marker'
 		}];
 		return(
 			<div className="Sidebar page-sidebar">

@@ -5,7 +5,8 @@ import classes from './SidebarMenuItem.scss'
 export default class SidebarMenuItem extends React.Component {
 	static propTypes = {
 		name: PropTypes.string.isRequired,
-		href: PropTypes.string.isRequired
+		href: PropTypes.string.isRequired,
+		iconClass: PropTypes.string.isRequired
 	}
 	render() {
 		return(
@@ -14,7 +15,7 @@ export default class SidebarMenuItem extends React.Component {
 					<span className="title">{this.props.name}</span>
 				</Link>
 				<span className="icon-thumbnail">
-					<i className="pg-home"></i>
+					<i className={this.props.iconClass}></i>
 				</span>
 			</li>
 		);
