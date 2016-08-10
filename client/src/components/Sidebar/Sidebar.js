@@ -14,6 +14,21 @@ export default class Sidebar extends React.Component {
 			name: 'Location',
 			href: '/',
 			iconClass: 'fa fa-map-marker'
+		},
+		{
+			name: 'Statistics',
+			href: '/',
+			iconClass: 'fa fa-bar-chart'
+		},
+		{
+			name: 'Admin',
+			href: '/',
+			iconClass: 'fa fa-cog'
+		},
+		{
+			name: 'UserName',
+			href: '/',
+			iconClass: 'fa fa-user'
 		}];
 		return(
 			<div className="Sidebar page-sidebar">
