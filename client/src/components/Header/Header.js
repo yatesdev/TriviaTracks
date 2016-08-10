@@ -19,8 +19,8 @@ export default class Header extends React.Component {
           </div>
           <div className="pull-right full-height visible-sm visible-xs">
             <div className="sm-action-bar">
-              <a href="#" class="btn-link p-t-15" data-toggle="search" >
-                <span class=""><i class="pg-search"></i></span>
+              <a href="#" className="btn-link" data-toggle="search" >
+                <span ><i className="fa fa-search"></i></span>
               </a>
             </div>
           </div>
