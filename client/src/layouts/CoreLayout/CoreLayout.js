@@ -8,7 +8,7 @@ export const CoreLayout = ({ children }) => (
   <div className='fixed-header menu-pin menu-behind'>
   	<Sidebar />
     <Header />
-    <div className={classes.mainContainer}>
+    <div className="page-content-wrapper col-xs-12">
       {children}
     </div>
   </div>
