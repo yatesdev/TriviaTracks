@@ -15,25 +15,25 @@ export default class Sidebar extends React.Component {
 			name: 'Location',
 			href: '/location',
 			iconClass: 'fa fa-map-marker',
-			iconColor: 'bg-success'
+			iconColor: 'bg-warning'
 		},
 		{
 			name: 'Statistics',
 			href: 'statistics',
 			iconClass: 'fa fa-bar-chart',
-			iconColor: 'bg-success'
+			iconColor: 'bg-primary'
 		},
 		{
 			name: 'Admin',
 			href: '/admin',
 			iconClass: 'fa fa-cog',
-			iconColor: 'bg-success'
+			iconColor: 'bg-complete'
 		},
 		{
 			name: 'UserName',
 			href: '/user',
 			iconClass: 'fa fa-user',
-			iconColor: 'bg-success'
+			iconColor: 'bg-danger'
 		}];
 		return(
 			<div className="Sidebar page-sidebar">
