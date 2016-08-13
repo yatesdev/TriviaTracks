@@ -17,8 +17,9 @@ class NavItem extends React.Component {
     var classNames = require('classnames');
 		var iconThumbnailColor = classNames(
 			"icon-thumbnail",
-			this.props.iconColor
-		);
+			{
+				[this.props.iconColor] : isActive
+		});
     return (
       <li className={isActive ? 'active' : ''}>
         <LinkComponent to={to}>{children}</LinkComponent>
