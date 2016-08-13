@@ -14,7 +14,8 @@ export default class SidebarMenu extends React.Component {
 					key={index}
 					name={link.name}
 					href={link.href}
-					iconClass={link.iconClass} />
+					iconClass={link.iconClass} 
+					iconColor={link.iconColor}/>
 			)
 		);
 	}
