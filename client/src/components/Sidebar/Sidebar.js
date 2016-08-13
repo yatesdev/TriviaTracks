@@ -12,7 +12,7 @@ export default class Sidebar extends React.Component {
 		},
 		{
 			name: 'Location',
-			href: '/',
+			href: '/location',
 			iconClass: 'fa fa-map-marker'
 		},
 		{
@@ -22,7 +22,7 @@ export default class Sidebar extends React.Component {
 		},
 		{
 			name: 'Admin',
-			href: '/',
+			href: '/admin',
 			iconClass: 'fa fa-cog'
 		},
 		{
