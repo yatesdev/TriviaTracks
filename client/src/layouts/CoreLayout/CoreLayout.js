@@ -11,7 +11,7 @@ export const CoreLayout = ({ children }) => (
     	<Header />
     	<div className="page-content-wrapper">
     		<div className="content">
-	    		<div className="container-fluid container-fixed-lg">
+	    		<div className="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
 	      		{children}
 	      	</div>
 	      </div>
