@@ -27,7 +27,7 @@ export default class Sidebar extends React.Component {
 		},
 		{
 			name: 'UserName',
-			href: '/',
+			href: '/user',
 			iconClass: 'fa fa-user'
 		}];
 		return(
