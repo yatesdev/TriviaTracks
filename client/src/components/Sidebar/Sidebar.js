@@ -17,7 +17,7 @@ export default class Sidebar extends React.Component {
 		},
 		{
 			name: 'Statistics',
-			href: '/',
+			href: 'statistics',
 			iconClass: 'fa fa-bar-chart'
 		},
 		{
