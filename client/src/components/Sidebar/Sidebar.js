@@ -13,7 +13,7 @@ export default class Sidebar extends React.Component {
 		},
 		{
 			name: 'Location',
-			href: '/location',
+			href: 'location',
 			iconClass: 'fa fa-map-marker',
 			iconColor: 'bg-warning'
 		},
@@ -25,13 +25,13 @@ export default class Sidebar extends React.Component {
 		},
 		{
 			name: 'Admin',
-			href: '/admin',
+			href: 'admin',
 			iconClass: 'fa fa-cog',
 			iconColor: 'bg-complete'
 		},
 		{
 			name: 'UserName',
-			href: '/user',
+			href: 'user',
 			iconClass: 'fa fa-user',
 			iconColor: 'bg-danger'
 		}];
