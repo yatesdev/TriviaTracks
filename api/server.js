@@ -14,10 +14,13 @@ mongoose.connect(config.connection.db, {
 
 app.use(bodyParser.json());
 
+// Load Routes
 Routes(app);
 
-app.listen(process.env.PORT || config.port, () => {
-  console.log(`Trivia Tracks API server started on: ${process.env.PORT || config.port}`);
+// Listen on port
+let port = process.env.PORT || config.port;
+app.listen(port, () => {
+  console.log(`Trivia Tracks API server started on: ${port}`);
 });
 
 export default app;
