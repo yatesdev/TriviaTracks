@@ -1,8 +1,6 @@
-'use strict';
+import Songs from '../controllers/SongController';
 
-module.exports = function(app) {
-  var Songs = require('../controllers/SongController');
-
+export default function(app) {
   app.route('/songs')
     .get(Songs.get_all_songs)
     .post(Songs.add_song);

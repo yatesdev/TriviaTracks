@@ -1,0 +1,6 @@
+{
+	"port": 8230,
+	"connection": {
+		"db": "mongodb://localhost:27017"
+	}
+}

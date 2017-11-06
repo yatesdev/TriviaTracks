@@ -1,21 +1,23 @@
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 8230;
-  mongoose = require('mongoose'),
-  Song = require('./models/SongModel'),
-  bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import config from './config.json';
+import Song from './models/SongModel';
+import Routes from './routes';
+
+let app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017', {
+mongoose.connect(config.connection.db, {
   useMongoClient: true
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var routes = require('./routes/SongRoutes');
-routes(app);
+Routes(app);
 
-app.listen(port);
+app.listen(process.env.PORT || config.port, () => {
+  console.log(`Trivia Tracks API server started on: ${process.env.PORT || config.port}`);
+});
 
-console.log('Trivia Tracks API server started on: ' + port);
+export default app;
