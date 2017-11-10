@@ -1,7 +1,7 @@
 <template>
-  <div class="sidebar-item">
+  <router-link class="sidebar-item" :to="item.to" tag="div">
     <div class="title">{{item.title}}</div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -24,6 +24,7 @@ export default {
     width: 100%;
     height: 40px;
     color: white;
+    cursor: pointer;
 
     &:hover {
       background-color: tomato;

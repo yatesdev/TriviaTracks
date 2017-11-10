@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div class="sidebar-items">
-      <sidebar-item v-for="item in items" :key="item.title" :to="item.to" :item="item"/>
+      <sidebar-item v-for="item in items" :key="item.title" :item="item"/>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
         {
           title: 'Home',
           icon: 'dashboard',
-          to: { name: 'hello' },
+          to: { path: '/' },
         }, {
           title: 'Location',
           icon: 'developer_board',
