@@ -1,0 +1,55 @@
+<template>
+  <div class="sidebar">
+    <div class="sidebar-items">
+      <sidebar-item v-for="item in items" :key="item.title" :to="item.to" :item="item"/>
+    </div>
+  </div>
+</template>
+
+<script>
+import SidebarItem from './SidebarItem';
+
+export default {
+  name: 'sidebar',
+  components: {
+    'sidebar-item': SidebarItem,
+  },
+  data() {
+    return {
+      items: [
+        {
+          title: 'Home',
+          icon: 'dashboard',
+          to: { name: 'hello' },
+        }, {
+          title: 'Location',
+          icon: 'developer_board',
+          to: { path: '/location' },
+        }, {
+          title: 'Statistics',
+          icon: 'insert_chart',
+          to: '/stats',
+        }, {
+          title: 'Admin',
+          icon: 'settings',
+          to: '/admin',
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+  .sidebar {
+    width: 200px;
+    position: fixed;
+    height: 100%;
+    background: red;
+  }
+
+  .sidebar-items {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
