@@ -19,19 +19,15 @@ export default {
       items: [
         {
           title: 'Home',
-          icon: 'dashboard',
           to: { path: '/' },
         }, {
           title: 'Location',
-          icon: 'developer_board',
           to: { path: '/location' },
         }, {
           title: 'Statistics',
-          icon: 'insert_chart',
           to: '/stats',
         }, {
           title: 'Admin',
-          icon: 'settings',
           to: '/admin',
         },
       ],
