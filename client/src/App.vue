@@ -4,18 +4,21 @@
     <sidebar v-show="showSidebar"/>
     <img src="./assets/logo.png">
     <router-view/>
+    <bottombar/>
   </div>
 </template>
 
 <script>
-import navbar from './components/NavBar';
+import navbar from './components/Navbar';
 import sidebar from './components/Sidebar';
+import bottombar from './components/Bottombar';
 
 export default {
   name: 'app',
   components: {
     navbar,
     sidebar,
+    bottombar,
   },
   data() {
     return {
