@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div class="sidebar-items">
-      <sidebar-item v-for="item in items" :key="item.title" :item="item"/>
+      <sidebar-item v-for="(item, index) in items" :key="index" :item="item" :index="index"/>
     </div>
   </div>
 </template>

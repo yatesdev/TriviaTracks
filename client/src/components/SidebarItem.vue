@@ -1,5 +1,5 @@
 <template>
-  <router-link class="sidebar-item" :to="item.to" tag="div">
+  <router-link class="sidebar-item" :to="item.to" tag="div" :exact="index == 0">
     <div class="title">{{item.title}}</div>
   </router-link>
 </template>
@@ -10,6 +10,10 @@ export default {
   props: {
     item: {
       type: Object,
+      required: true,
+    },
+    index: {
+      type: Number,
       required: true,
     },
   },
@@ -29,9 +33,15 @@ export default {
     &:hover {
       background-color: tomato;
     }
+
   }
 
   .title {
     max-width: 100%;
   }
+
+  .router-link-active {
+    background-color: tomato;
+  }
+
 </style>
