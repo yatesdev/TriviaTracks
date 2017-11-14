@@ -2,12 +2,15 @@ import mongoose from 'mongoose';
 const Request = mongoose.model('Request');
 
 exports.all = (req, res) => {
-  Request.find({}, (err, requests) => {
-    if(err) {
-      res.send(err);
-    }
-    res.json(requests);
-  });
+  Request.find({})
+    .populate('song')
+    .populate('user')
+    .exec((err, requests) => {
+      if(err) {
+        res.send(err);
+      }
+      res.json(requests);
+    });
 };
 
 exports.create_request = (req, res) => {
@@ -21,12 +24,15 @@ exports.create_request = (req, res) => {
 };
 
 exports.get_request = (req, res) => {
-  Request.findById(req.params.id, (err, request) => {
-    if(err) {
-      res.send(err)
-    }
-    res.json(request);
-  });
+  Request.findById(req.params.id)
+    .populate({ path:'song' })
+    .populate({ path: 'user'})
+    .exec((err, request) => {
+      if(err) {
+        res.send(err)
+      }
+      res.json(request);
+    });
 };
 
 exports.update_request = (req, res) => {
