@@ -2,8 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import config from './config.json';
-import Song from './models/SongModel';
-import User from './models/UserModel';
+import Models from './models';
 import Routes from './routes';
 
 let app = express();
