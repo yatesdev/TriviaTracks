@@ -1,6 +1,6 @@
 import Songs from '../controllers/SongController';
 
-export default function(app) {
+export default (app) => {
   app.route('/songs')
     .get(Songs.get_all_songs)
     .post(Songs.add_song);
