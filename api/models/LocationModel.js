@@ -1,8 +1,7 @@
-"use strict";
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-var LocationSchema = new Schema({
+let LocationSchema = new Schema({
 	name: {
     type: String,
     required: true

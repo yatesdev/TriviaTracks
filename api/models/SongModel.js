@@ -1,8 +1,7 @@
-"use strict";
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-var SongSchema = new Schema({
+let SongSchema = new Schema({
   track_name: {
     type: String,
   },
