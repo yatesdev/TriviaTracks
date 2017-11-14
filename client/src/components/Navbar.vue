@@ -18,10 +18,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/scss/_colors.scss';
   .header {
     height: 50px;
     color: white;
-    background-color: green;
+    background-color: darken($deepblue,20);
     display: flex;
     flex-direction: row;
   }

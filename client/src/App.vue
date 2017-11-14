@@ -33,7 +33,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import './assets/scss/_colors.scss';
+
 body{
   margin: 0;
 }
@@ -43,6 +45,6 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #513B56;
 }
 </style>

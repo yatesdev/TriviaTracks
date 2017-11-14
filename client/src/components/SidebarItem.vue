@@ -1,5 +1,5 @@
 <template>
-  <router-link class="sidebar-item" :to="item.to" tag="div" :exact="index == 0">
+  <router-link class="sidebar-item" :to="item.to" tag="div" :exact="item.to.path === '/'">
     <div class="title">{{item.title}}</div>
   </router-link>
 </template>
@@ -10,10 +10,6 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true,
-    },
-    index: {
-      type: Number,
       required: true,
     },
   },

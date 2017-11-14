@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div class="sidebar-items">
-      <sidebar-item v-for="(item, index) in items" :key="index" :item="item" :index="index"/>
+      <sidebar-item v-for="item in items" :key="item.title" :item="item"/>
     </div>
   </div>
 </template>
@@ -37,11 +37,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../assets/scss/_colors.scss';
   .sidebar {
     width: 200px;
     position: fixed;
     height: 100%;
-    background: red;
+    background-color: $lightbluegray;
   }
 
   .sidebar-items {
