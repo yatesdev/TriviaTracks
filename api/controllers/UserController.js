@@ -1,6 +1,4 @@
-'use strict';
-
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const User = mongoose.model('User');
 
 exports.all = (req, res) => {
