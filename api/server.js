@@ -13,6 +13,7 @@ mongoose.connect(config.connection.db, {
 });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Load Routes
 Routes(app);
