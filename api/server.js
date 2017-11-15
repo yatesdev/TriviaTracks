@@ -5,21 +5,23 @@ import config from './config.json';
 import Models from './models';
 import Routes from './routes';
 
-let app = express();
+const app = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.connection.db, {
-  useMongoClient: true
+  useMongoClient: true,
 });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Load Models
+Models();
 // Load Routes
 Routes(app);
 
 // Listen on port
-let port = process.env.PORT || config.port;
+const port = process.env.PORT || config.port;
 app.listen(port, () => {
   console.log(`Trivia Tracks API server started on: ${port}`);
 });
