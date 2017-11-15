@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
 
-let UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
   first_name: {
     type: String,
   },
@@ -15,8 +14,6 @@ let UserSchema = new Schema({
 });
 
 UserSchema.virtual('full_name')
-  .get(() => {
-    return this.first_name + ' ' + this.last_name;
-  });
+  .get(() => `${this.first_name} ${this.last_name}`);
 
 module.exports = mongoose.model('User', UserSchema);
