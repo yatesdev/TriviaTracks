@@ -6,4 +6,4 @@ export default (app) => {
   SongRoutes(app);
   UserRoutes(app);
   RequestRoutes(app);
-}
+};
