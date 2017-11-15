@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+
 const Request = mongoose.model('Request');
 
 exports.all = (req, res) => {
@@ -6,7 +7,7 @@ exports.all = (req, res) => {
     .populate('song')
     .populate('user')
     .exec((err, requests) => {
-      if(err) {
+      if (err) {
         res.send(err);
       }
       res.json(requests);
@@ -14,9 +15,9 @@ exports.all = (req, res) => {
 };
 
 exports.create_request = (req, res) => {
-  let new_request = Request(req.body);
-  new_request.save((err, request) => {
-    if(err) {
+  const newRequest = Request(req.body);
+  newRequest.save((err, request) => {
+    if (err) {
       res.send(err);
     }
     res.json(request);
@@ -25,19 +26,19 @@ exports.create_request = (req, res) => {
 
 exports.get_request = (req, res) => {
   Request.findById(req.params.id)
-    .populate({ path:'song' })
-    .populate({ path: 'user'})
+    .populate({ path: 'song' })
+    .populate({ path: 'user' })
     .exec((err, request) => {
-      if(err) {
-        res.send(err)
+      if (err) {
+        res.send(err);
       }
       res.json(request);
     });
 };
 
 exports.update_request = (req, res) => {
-  Request.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true}, (err, request) => {
-    if(err) {
+  Request.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, request) => {
+    if (err) {
       res.send(err);
     }
     res.json(request);
@@ -46,12 +47,11 @@ exports.update_request = (req, res) => {
 
 exports.delete_request = (req, res) => {
   Request.remove({
-    _id: req.params.id
-  }, (err, request) => {
-    if(err) {
+    _id: req.params.id,
+  }, (err) => {
+    if (err) {
       res.send(err);
     }
     res.json({ message: 'Request successfullly deleted' });
   });
 };
-
