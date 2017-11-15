@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
 
-let SongSchema = new Schema({
+const SongSchema = new mongoose.Schema({
   track_name: {
     type: String,
   },
@@ -16,8 +15,7 @@ let SongSchema = new Schema({
   },
   spotify_track_id: {
     type: String,
-  }
-
+  },
 });
 
 module.exports = mongoose.model('Song', SongSchema);
