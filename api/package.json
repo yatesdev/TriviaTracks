@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./babelrc,./package.json,./npm-debug.log --copy-files",
     "start": "npm run build && node dist/server.js",
-    "lint":  "eslint --ext .js ."
+    "lint": "eslint --ext .js ."
   },
   "author": "Mike Yates <mike@yatesdev.com>",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^4.13.0"
   }
