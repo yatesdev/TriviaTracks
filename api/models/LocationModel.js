@@ -1,15 +1,14 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
 
-let LocationSchema = new Schema({
-	name: {
+const LocationSchema = new mongoose.Schema({
+  name: {
     type: String,
-    required: true
+    required: true,
   },
   schedule_day: {
-    type: ObjectId,
+    type: Number,
     max: 7,
-    min: 1
+    min: 1,
   },
 });
 
