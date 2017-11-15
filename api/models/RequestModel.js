@@ -1,20 +1,19 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
 
-let RequestSchema = new Schema({
+const RequestSchema = new mongoose.Schema({
   song: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Song',
     required: true,
   },
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
   likes: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Like'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Like',
   }],
   created_on: {
     type: Date,
