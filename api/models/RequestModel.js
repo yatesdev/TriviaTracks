@@ -11,13 +11,15 @@ const RequestSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  likes: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Like',
-  }],
   created_on: {
     type: Date,
   },
+}, { toJSON: { virtuals: true } });
+
+RequestSchema.virtual('likes', {
+  ref: 'Like',
+  localField: '_id',
+  foreignField: 'request',
 });
 
 module.exports = mongoose.model('Request', RequestSchema);

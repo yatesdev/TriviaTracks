@@ -6,6 +6,7 @@ exports.all = (req, res) => {
   Request.find({})
     .populate('song')
     .populate('user')
+    .populate({ path: 'likes', populate: { path: 'user' } })
     .exec((err, requests) => {
       if (err) {
         res.send(err);
@@ -28,6 +29,7 @@ exports.get_request = (req, res) => {
   Request.findById(req.params.id)
     .populate({ path: 'song' })
     .populate({ path: 'user' })
+    .populate({ path: 'likes', populate: { path: 'user' } })
     .exec((err, request) => {
       if (err) {
         res.send(err);
