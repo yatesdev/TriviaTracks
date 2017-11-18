@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
+import { User } from '../models';
 
-const User = mongoose.model('User');
 
 exports.all = (req, res) => {
   User.find({}, (err, users) => {

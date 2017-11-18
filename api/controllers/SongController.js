@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-
-const Song = mongoose.model('Song');
+import { Song } from '../models';
 
 exports.get_all_songs = (req, res) => {
   Song.find({}, (err, songs) => {

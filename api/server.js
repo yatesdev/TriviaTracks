@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import Models from './models';
 import config from './config';
 import Routes from './routes';
 
@@ -15,8 +14,6 @@ mongoose.connect(config.connection.database, {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Load Models
-Models();
 // Load Routes
 Routes(app);
 

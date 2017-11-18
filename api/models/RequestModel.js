@@ -22,4 +22,4 @@ RequestSchema.virtual('likes', {
   foreignField: 'request',
 });
 
-module.exports = mongoose.model('Request', RequestSchema);
+export default mongoose.model('Request', RequestSchema);

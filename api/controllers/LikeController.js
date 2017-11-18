@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-
-const Like = mongoose.model('Like');
+import { Like } from '../models';
 
 exports.all = (req, res) => {
   Like.find({})

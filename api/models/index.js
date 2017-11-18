@@ -3,9 +3,7 @@ import UserModel from './UserModel';
 import RequestModel from './RequestModel';
 import LikeModel from './LikeModel';
 
-export default () => {
-  LikeModel();
-  SongModel();
-  UserModel();
-  RequestModel();
-};
+export { default as Song } from './SongModel';
+export { default as User } from './UserModel';
+export { default as Request } from './RequestModel';
+export { default as Like } from './LikeModel';

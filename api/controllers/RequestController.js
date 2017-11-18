@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-
-const Request = mongoose.model('Request');
+import { Request } from '../models';
 
 exports.all = (req, res) => {
   Request.find({})

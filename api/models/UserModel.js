@@ -16,4 +16,4 @@ const UserSchema = new mongoose.Schema({
 UserSchema.virtual('full_name')
   .get(() => `${this.first_name} ${this.last_name}`);
 
-module.exports = mongoose.model('User', UserSchema);
+export default  mongoose.model('User', UserSchema);
