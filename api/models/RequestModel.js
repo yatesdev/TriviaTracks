@@ -22,4 +22,28 @@ RequestSchema.virtual('likes', {
   foreignField: 'request',
 });
 
-export default mongoose.model('Request', RequestSchema);
+const RequestModel = mongoose.model('Request', RequestSchema);
+
+RequestModel.getAll = () => {
+  return RequestModel.find({})
+    .populate('song')
+    .populate('user')
+    .populate({ path: 'likes', populate: { path: 'user' } });
+};
+
+RequestModel.getOne = (id) => {
+  return RequestModel.findById(id)
+    .populate('song')
+    .populate('user')
+    .populate({ path: 'likes', populate: { path: 'user' } });
+};
+
+RequestModel.addRequest = (requestToAdd) => requestToAdd.save();
+
+RequestModel.updateOne = (id, data) => RequestModel.findOneAndUpdate({ _id: id }, data, { new: true });
+
+RequestModel.removeOne = (id) => RequestModel.findOneAndRemove({ _id: id });
+
+export default RequestModel;
+
+
