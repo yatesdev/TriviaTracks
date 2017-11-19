@@ -18,4 +18,16 @@ const SongSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Song', SongSchema);
+const SongModel = mongoose.model('Song', SongSchema);
+
+SongModel.getAll = () => SongModel.find({});
+
+SongModel.addSong = (songToAdd) => songToAdd.save();
+
+SongModel.getOne = (id) => SongModel.findById(id);
+
+SongModel.updateOne = (id, data) => SongModel.findOneAndUpdate({ _id: id }, data, { new: true });
+
+SongModel.removeOne = (id) => SongModel.findOneAndRemove({ _id: id });
+
+export default SongModel;

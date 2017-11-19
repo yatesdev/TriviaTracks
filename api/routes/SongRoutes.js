@@ -2,7 +2,7 @@ import Songs from '../controllers/SongController';
 
 export default (app) => {
   app.route('/songs')
-    .get(Songs.get_all_songs)
+    .get(Songs.all)
     .post(Songs.add_song);
 
   app.route('/songs/:id')
