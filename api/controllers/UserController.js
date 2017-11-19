@@ -1,49 +1,32 @@
-import mongoose from 'mongoose';
 import { User } from '../models';
+import { AsyncMiddleware } from '../middleware';
 
+const controller = {};
 
-exports.all = (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(users);
-  });
-};
+controller.all = AsyncMiddleware(async (req, res) => {
+  const users = await User.getAll();
+  res.json(users);
+});
 
-exports.add_user = (req, res) => {
+controller.add_user = AsyncMiddleware(async (req, res) => {
   const newUser = User(req.body);
-  newUser.save((err, user) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(user);
-  });
-};
+  const savedUser = await User.addUser(newUser);
+  res.json(savedUser);
+});
 
-exports.get_user = (req, res) => {
-  User.findById(req.params.id, (err, user) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(user);
-  });
-};
+controller.get_user = AsyncMiddleware(async (req, res) => {
+  const user = await User.getOne(req.params.id);
+  res.json(user);
+});
 
-exports.update_user = (req, res) => {
-  User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, user) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(user);
-  });
-};
+controller.update_user = AsyncMiddleware(async (req, res) => {
+  const user = await User.updateOne(req.params.id, req.body);
+  res.json(user);
+});
 
-exports.delete_user = (req, res) => {
-  User.remove({ _id: req.params.id }, (err) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: 'User successfully deleted' });
-  });
-};
+controller.delete_user = AsyncMiddleware(async (req, res) => {
+  const removedUser = await User.removeOne(req.params.id);
+  res.json(removedUser);
+});
+
+export default controller;
