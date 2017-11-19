@@ -1,7 +1,8 @@
-import mongoose from 'mongoose';
 import { Like } from '../models';
 
-exports.all = (req, res) => {
+const controller = {};
+
+controller.all = (req, res) => {
   Like.find({})
     .populate('user')
     .exec((err, likes) => {
@@ -12,7 +13,7 @@ exports.all = (req, res) => {
     });
 };
 
-exports.add = (req, res) => {
+controller.add = (req, res) => {
   const newLike = Like(req.body);
   if (!newLike.request && req.params.id) {
     newLike.request = req.params.id;
@@ -26,7 +27,7 @@ exports.add = (req, res) => {
   });
 };
 
-exports.get = (req, res) => {
+controller.get = (req, res) => {
   Like.findById(req.params.id)
     .populate('user')
     .exec((err, like) => {
@@ -37,8 +38,10 @@ exports.get = (req, res) => {
     });
 };
 
-exports.delete = (req, res) => {
+controller.delete = (req, res) => {
   Like.deleteOne({ _id: req.params.id }).then(() => {
     res.json({ message: 'Successfully Unliked' });
   });
 };
+
+export default controller;

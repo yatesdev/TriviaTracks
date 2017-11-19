@@ -1,7 +1,8 @@
-import mongoose from 'mongoose';
 import { Request } from '../models';
 
-exports.all = (req, res) => {
+const controller = {};
+
+controller.all = (req, res) => {
   Request.find({})
     .populate('song')
     .populate('user')
@@ -14,7 +15,7 @@ exports.all = (req, res) => {
     });
 };
 
-exports.create_request = (req, res) => {
+controller.create_request = (req, res) => {
   const newRequest = Request(req.body);
   newRequest.save((err, request) => {
     if (err) {
@@ -24,7 +25,7 @@ exports.create_request = (req, res) => {
   });
 };
 
-exports.get_request = (req, res) => {
+controller.get_request = (req, res) => {
   Request.findById(req.params.id)
     .populate({ path: 'song' })
     .populate({ path: 'user' })
@@ -37,7 +38,7 @@ exports.get_request = (req, res) => {
     });
 };
 
-exports.update_request = (req, res) => {
+controller.update_request = (req, res) => {
   Request.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, request) => {
     if (err) {
       res.send(err);
@@ -46,7 +47,7 @@ exports.update_request = (req, res) => {
   });
 };
 
-exports.delete_request = (req, res) => {
+controller.delete_request = (req, res) => {
   Request.remove({
     _id: req.params.id,
   }, (err) => {
@@ -56,3 +57,5 @@ exports.delete_request = (req, res) => {
     res.json({ message: 'Request successfullly deleted' });
   });
 };
+
+export default controller;

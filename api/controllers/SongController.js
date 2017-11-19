@@ -1,7 +1,8 @@
-import mongoose from 'mongoose';
 import { Song } from '../models';
 
-exports.get_all_songs = (req, res) => {
+const controller = {};
+
+controller.get_all_songs = (req, res) => {
   Song.find({}, (err, songs) => {
     if (err) {
       res.send(err);
@@ -10,7 +11,7 @@ exports.get_all_songs = (req, res) => {
   });
 };
 
-exports.add_song = (req, res) => {
+controller.add_song = (req, res) => {
   const newSong = Song(req.body);
   newSong.save((err, song) => {
     if (err) {
@@ -20,7 +21,7 @@ exports.add_song = (req, res) => {
   });
 };
 
-exports.get_song = (req, res) => {
+controller.get_song = (req, res) => {
   Song.findById(req.params.id, (err, song) => {
     if (err) {
       res.send(err);
@@ -29,7 +30,7 @@ exports.get_song = (req, res) => {
   });
 };
 
-exports.update_song = (req, res) => {
+controller.update_song = (req, res) => {
   Song.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, song) => {
     if (err) {
       res.send(err);
@@ -38,7 +39,7 @@ exports.update_song = (req, res) => {
   });
 };
 
-exports.delete_song = (req, res) => {
+controller.delete_song = (req, res) => {
   Song.remove({ _id: req.params.id }, (err) => {
     if (err) {
       res.send(err);
@@ -46,3 +47,5 @@ exports.delete_song = (req, res) => {
     res.json({ message: 'Song successfully deleted' });
   });
 };
+
+export default controller;
