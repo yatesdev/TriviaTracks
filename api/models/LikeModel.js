@@ -18,4 +18,14 @@ const LikeSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Like', LikeSchema);
+const LikeModel = mongoose.model('Like', LikeSchema);
+
+LikeModel.getAll = () => LikeModel.find({}).populate('user');
+
+LikeModel.getOne = (id) => LikeModel.findById(id).populate('user');
+
+LikeModel.addLike = (likeToAdd) => likeToAdd.save();
+
+LikeModel.removeOne = (id) => LikeModel.findOneAndRemove({ _id: id });
+
+export default LikeModel;
