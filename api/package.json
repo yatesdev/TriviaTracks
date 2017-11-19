@@ -28,7 +28,18 @@
     "express": "^4.16.2",
     "mongoose": "^4.13.0"
   },
+  "eslintConfig": {
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": "airbnb-base",
+    "parser": "babel-eslint"
+  },
   "nodemonConfig": {
-    "ignore": ["*.spec.js", "dist"]
+    "ignore": [
+      "*.spec.js",
+      "dist"
+    ]
   }
 }
