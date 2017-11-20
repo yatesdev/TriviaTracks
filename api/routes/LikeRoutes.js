@@ -1,6 +1,10 @@
-import Likes from '../controllers/LikeController';
+import { LikeController as Likes } from '../controllers';
+import { AuthRequired } from '../middleware';
 
 export default (app) => {
+  app.route('/likes*')
+    .all(AuthRequired);
+
   app.route('/likes')
     .get(Likes.all)
     .post(Likes.add);

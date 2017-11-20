@@ -1,6 +1,10 @@
-import Songs from '../controllers/SongController';
+import { SongController as Songs } from '../controllers';
+import { AuthRequired } from '../middleware';
 
 export default (app) => {
+  app.route('/songs*')
+    .all(AuthRequired);
+
   app.route('/songs')
     .get(Songs.all)
     .post(Songs.add_song);
